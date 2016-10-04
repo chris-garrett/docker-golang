@@ -1,0 +1,16 @@
+# docker-golang
+
+* Apline linux + Go ${GO_VERSION} + Glide
+
+## Versions
+- Alpine linux
+- Go ${GO_VERSION}
+- Glide
+
+## Usage
+
+`docker run --rm chrisgarrett/golang`
+
+
+## Credits
+

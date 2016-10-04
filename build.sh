@@ -1,4 +1,8 @@
-VERSION=1.6.3
-IMAGE_NAME=chrisgarrett/golang
+#!/bin/sh
 
-docker build --build-arg VERSION=$VERSION --rm=true -t $IMAGE_NAME:$VERSION .
+. ./config.sh
+
+GO_VERSION=$VERSION envsubst < ./templates/Dockerfile.template > Dockerfile
+GO_VERSION=$VERSION envsubst < ./templates/README.md.template > README.md
+
+docker build --rm=true -t $IMAGE_NAME:$VERSION .
