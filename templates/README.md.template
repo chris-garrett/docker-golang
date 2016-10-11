@@ -1,10 +1,10 @@
 # docker-golang
 
-* Apline linux + Go 1.7.1 + Glide
+* Apline linux + Go ${VERSION} + Glide
 
 ## Versions
 - Alpine linux
-- Go 1.7.1
+- Go ${VERSION}
 - Glide (latest)
 
 ## Usage

@@ -1,6 +1,6 @@
-FROM golang:1.7.1-alpine
+FROM golang:${VERSION}-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
-LABEL description="Golang 1.7.1 Development Image"
+LABEL description="Golang ${VERSION} Development Image"
 RUN apk --no-cache add git \
                        bash \
                        make \
