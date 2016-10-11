@@ -1,11 +1,11 @@
 # docker-golang
 
-* Apline linux + Go ${GO_VERSION} + Glide
+* Apline linux + Go ${VERSION} + Glide
 
 ## Versions
 - Alpine linux
-- Go ${GO_VERSION}
-- Glide
+- Go ${VERSION}
+- Glide (latest)
 
 ## Usage
 
@@ -13,4 +13,3 @@
 
 
 ## Credits
-
