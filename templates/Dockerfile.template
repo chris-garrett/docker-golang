@@ -7,9 +7,16 @@ RUN apk --no-cache add -U \
     vim \
     bash \
     make \
+    build-base \
+    automake \
+    autoconf \
+    nasm \
     curl \
+    unixodbc \
+    unixodbc-dev \
     libintl \
     gettext
+
 RUN ln -sf /usr/bin/vim /usr/bin/vi \
   && cp /usr/bin/envsubst /tmp/envsubst \
   && curl https://glide.sh/get | sh \
@@ -25,6 +32,6 @@ RUN adduser -s /bin/bash -D sprout
 
 COPY ./bash_aliases /home/sprout/.bashrc
 COPY ./vimrc /home/sprout/.vimrc
-RUN chown sprout:sprout /home/sprout/.bashrc /home/sprout/.vimrc
+RUN mkdir /go/pkg && chown sprout:sprout /go/src /go/pkg /home/sprout/.bashrc /home/sprout/.vimrc
 
 USER sprout
