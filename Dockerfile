@@ -1,6 +1,6 @@
-FROM golang:1.7.1-alpine
+FROM golang:1.7.5-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
-LABEL description="Golang 1.7.1 Development Image"
+LABEL description="Golang 1.7.5 Development Image"
 RUN apk --no-cache add -U ca-certificates openssl && update-ca-certificates
 RUN apk --no-cache add -U \
     git \
