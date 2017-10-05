@@ -1,8 +1,17 @@
 FROM golang:${VERSION}-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
 LABEL description="Golang ${VERSION} Development Image"
-RUN apk --no-cache add -U ca-certificates openssl && update-ca-certificates
+
+ARG DOCKERIZE_VERSION=v0.3.0
+
+COPY ./bash_aliases /home/sprout/.bashrc
+COPY ./vimrc /home/sprout/.vimrc
+
 RUN apk --no-cache add -U \
+    ca-certificates \
+    openssl \
+  && update-ca-certificates \
+  && apk --no-cache add -U \
     git \
     vim \
     bash \
@@ -15,23 +24,16 @@ RUN apk --no-cache add -U \
     unixodbc \
     unixodbc-dev \
     libintl \
-    gettext
-
-RUN ln -sf /usr/bin/vim /usr/bin/vi \
+    gettext \
+  && ln -sf /usr/bin/vim /usr/bin/vi \
   && cp /usr/bin/envsubst /tmp/envsubst \
   && curl https://glide.sh/get | sh \
   && apk del gettext \
-  && mv /tmp/envsubst /usr/bin/envsubst
-
-ARG DOCKERIZE_VERSION=v0.3.0
-RUN wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
-    && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz
-
-RUN adduser -s /bin/bash -D sprout
-
-COPY ./bash_aliases /home/sprout/.bashrc
-COPY ./vimrc /home/sprout/.vimrc
-RUN mkdir /go/pkg && chown sprout:sprout /go/src /go/pkg /home/sprout/.bashrc /home/sprout/.vimrc
+  && mv /tmp/envsubst /usr/bin/envsubst \
+  && wget https://github.com/jwilder/dockerize/releases/download/$DOCKERIZE_VERSION/dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
+  && adduser -s /bin/bash -D sprout \
+  && mkdir /go/pkg && chown sprout:sprout /go/src /go/pkg /home/sprout/.bashrc /home/sprout/.vimrc
 
 USER sprout
