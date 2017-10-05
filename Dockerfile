@@ -1,6 +1,6 @@
-FROM golang:1.8.4-alpine
+FROM golang:1.9.1-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
-LABEL description="Golang 1.8.4 Development Image"
+LABEL description="Golang 1.9.1 Development Image"
 
 ARG DOCKERIZE_VERSION=v0.3.0
 
