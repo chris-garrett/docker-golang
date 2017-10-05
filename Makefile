@@ -1,5 +1,5 @@
 
-IMAGE_VERSION=1.8.4
+IMAGE_VERSION=1.9.1
 IMAGE_NAME=chrisgarrett/golang
 
 all: build
