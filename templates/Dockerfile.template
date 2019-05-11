@@ -2,7 +2,7 @@ FROM golang:${VERSION}-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
 LABEL description="Golang ${VERSION} Development Image"
 
-ARG DOCKERIZE_VERSION=v0.3.0
+ARG DOCKERIZE_VERSION=v0.6.1
 
 COPY ./bash_aliases /home/sprout/.bashrc
 COPY ./vimrc /home/sprout/.vimrc
