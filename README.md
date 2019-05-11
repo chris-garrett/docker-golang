@@ -1,15 +1,15 @@
 # docker-golang
 
-* Apline linux + Go 1.9.1 + Glide
+* Apline linux + Go 1.12.5 + Glide
 
 ## Versions
 - Alpine linux
-- Go 1.9.1
+- Go 1.12.5
 - Glide (latest)
 
 ## Usage
 
-`docker run --rm chrisgarrett/golang`
+`docker run --rm -it chrisgarrett/golang:1.12.5 go version`
 
 
 ## Credits

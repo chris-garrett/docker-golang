@@ -1,8 +1,8 @@
-FROM golang:1.9.1-alpine
+FROM golang:1.12.5-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
-LABEL description="Golang 1.9.1 Development Image"
+LABEL description="Golang 1.12.5 Development Image"
 
-ARG DOCKERIZE_VERSION=v0.3.0
+ARG DOCKERIZE_VERSION=v0.6.1
 
 COPY ./bash_aliases /home/sprout/.bashrc
 COPY ./vimrc /home/sprout/.vimrc

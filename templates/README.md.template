@@ -9,7 +9,7 @@
 
 ## Usage
 
-`docker run --rm chrisgarrett/golang`
+`docker run --rm -it chrisgarrett/golang:${VERSION} go version`
 
 
 ## Credits
