@@ -1,6 +1,6 @@
-FROM golang:1.12.5-alpine
+FROM golang:1.14.6-alpine
 MAINTAINER Chris Garrett (https://github.com/chris-garrett/docker-golang)
-LABEL description="Golang 1.12.5 Development Image"
+LABEL description="Golang 1.14.6 Development Image"
 
 ARG DOCKERIZE_VERSION=v0.6.1
 
@@ -10,7 +10,7 @@ COPY ./vimrc /home/sprout/.vimrc
 RUN apk --no-cache add -U \
     ca-certificates \
     openssl \
-  && update-ca-certificates \
+  && update-ca-certificates --fresh \
   && apk --no-cache add -U \
     git \
     vim \
@@ -34,6 +34,9 @@ RUN apk --no-cache add -U \
   && tar -C /usr/local/bin -xzvf dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && rm dockerize-linux-amd64-$DOCKERIZE_VERSION.tar.gz \
   && adduser -s /bin/bash -D sprout \
-  && mkdir /go/pkg && chown sprout:sprout /go/src /go/pkg /home/sprout/.bashrc /home/sprout/.vimrc
+  && mkdir -p /home/sprout/bin \
+  && curl -sL https://taskfile.dev/install.sh | sh \
+  && mkdir /go/pkg && chown sprout:sprout /go/src /go/pkg /home/sprout/.bashrc /home/sprout/.vimrc \
+  && rm -rf /var/cache/apk/*
 
 USER sprout
