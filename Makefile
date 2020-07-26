@@ -16,3 +16,7 @@ run:
 
 sh:
 	docker run --rm -it ${IMAGE_NAME}:${IMAGE_VERSION} ash
+
+test:
+	docker run --rm -it -v `pwd`/src:/go/src -w /go/src/hello ${IMAGE_NAME}:${IMAGE_VERSION} go build
+
